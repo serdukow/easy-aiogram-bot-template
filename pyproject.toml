@@ -1,0 +1,21 @@
+[tool.pytest.ini_options]
+testpaths = ["src/bot/tests"]
+python_classes = "Test*"
+python_functions = "test_*"
+markers = ["asyncio"]
+
+[tool.poetry]
+name = "easy-aiogram-bot"
+version = "0.1.0"
+description = ""
+authors = ["andreiserdukov <serdukow1@gmail.com>"]
+readme = "README.md"
+licence = "LICENSE"
+
+[tool.poetry.dependencies]
+python = "3.12"
+
+
+[build-system]
+requires = ["poetry-core"]
+build-backend = "poetry.core.masonry.api"
