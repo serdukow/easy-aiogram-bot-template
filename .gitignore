@@ -24,6 +24,8 @@ env.bak/
 venv.bak/
 .python-version
 .env
+.env.dev
+.env.prod
 
 # Poetry local config
 poetry.toml
