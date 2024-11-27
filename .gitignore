@@ -1,0 +1,104 @@
+### macOS ###
+# General macOS system files
+.DS_Store
+.AppleDouble
+.LSOverride
+
+# iCloud generated files
+*.icloud
+
+### Python ###
+# Byte-compiled / optimized / DLL files
+__pycache__/
+*.py[cod]
+*$py.class
+
+# C extensions
+*.so
+
+# Virtual environments
+.venv/
+env/
+ENV/
+env.bak/
+venv.bak/
+.python-version
+.env
+
+# Poetry local config
+poetry.toml
+
+# Unit test / coverage reports
+.tox/
+.coverage
+.coverage.*
+.pytest_cache/
+.nox/
+cache/
+htmlcov/
+hypothesis/
+.cover
+*.py,cover
+
+# Jupyter Notebook
+.ipynb_checkpoints
+
+# Mypy, Pytype, Pyre caches
+.mypy_cache/
+.pytype/
+.pyre/
+
+# PyInstaller
+*.spec
+*.manifest
+*.exe
+
+# Flask / Django
+instance/
+.webassets-cache
+db.sqlite3
+db.sqlite3-journal
+
+
+# Documentation
+docs/_build/
+
+### IDEs ###
+# JetBrains / PyCharm
+.idea
+.idea/
+*.iml
+*.xml
+.idea_modules/
+# VSCode
+.vscode/
+
+### macOS Patch ###
+._*
+
+# General files from Python tools (pip, distutils, eggs)
+build/
+dist/
+*.egg-info/
+.eggs/
+wheels/
+downloads/
+lib/
+lib64/
+parts/
+sdist/
+var/
+share/python-wheels/
+
+### Poetry ###
+# poetry.lock
+
+### Logs ###
+logs/
+*.log
+
+### LSP config files ###
+pyrightconfig.json
+
+### Ruff ###
+.ruff_cache/
