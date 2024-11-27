@@ -10,10 +10,11 @@ version = "0.1.0"
 description = ""
 authors = ["andreiserdukov <serdukow1@gmail.com>"]
 readme = "README.md"
-licence = "LICENSE"
+license = "LICENSE"
 
 [tool.poetry.dependencies]
-python = "3.12"
+python = "3.12.3"
+environs = "^11.2.1"
 
 
 [build-system]
