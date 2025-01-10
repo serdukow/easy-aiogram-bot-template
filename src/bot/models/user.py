@@ -11,7 +11,7 @@ class UserOrm(BaseOrm):
     username = Column(String, nullable=True)
     is_active = Column(Boolean, default=True)
     is_premium = Column(Boolean, default=False)
-    is_bot = Column(Boolean)
+    is_bot = Column(Boolean, default=False)
     language = Column(String(5), nullable=False, default="en")
 
     def __repr__(self):
