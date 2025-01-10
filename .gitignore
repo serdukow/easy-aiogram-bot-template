@@ -24,11 +24,6 @@ env.bak/
 venv.bak/
 .python-version
 .env
-.env.dev
-.env.prod
-
-# Poetry local config
-poetry.toml
 
 # Unit test / coverage reports
 .tox/
@@ -91,9 +86,6 @@ parts/
 sdist/
 var/
 share/python-wheels/
-
-### Poetry ###
-# poetry.lock
 
 ### Logs ###
 logs/
