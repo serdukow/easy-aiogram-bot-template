@@ -128,8 +128,7 @@ Roadmap
 - [x] Tests
   - [x] Basic
   - [ ] Versions
-- [ ] Webapp Integration
-- [ ] React frontend for webapp
+- [ ] React Webapp integration
 ----------------------
 Contributing
 ==============
