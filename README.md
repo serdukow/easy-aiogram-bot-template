@@ -2,8 +2,8 @@
 Easy Aiogram Bot
 ==============
 ![Python](https://img.shields.io/badge/python-3.12.3-blue)
-![Aiogram](https://img.shields.io/badge/Aiogram-^3.17.0-blue)
-![FastAPI](https://img.shields.io/badge/FastAPI-^0.115.6-green)
+![Aiogram](https://img.shields.io/badge/Aiogram-3.17.0-blue)
+![FastAPI](https://img.shields.io/badge/FastAPI-0.115.6-green)
 
 Easily make scalable Aiogram bots with this template. This template is designed to help you quickly build, configure, and deploy Aiogram-based bots with a flexible and scalable structure.
 ![](https://i.imgur.com/waxVImv.png)
