@@ -15,34 +15,36 @@ Easily make scalable Aiogram bots with this template. This template is designed 
 
 ## Usage
 
-To quickly get started with the bot, follow the steps below to set up the environment, install dependencies, and run the bot.
+To quickly get started with the bot, follow the steps below.
 
 ### Prerequisites
 
-If you want **to use webhook** ensure you have your own domain. To start bot without webhook, just fill `.env` with your API keys, then verify it by run this command in terminal:
-```
-poetry run pytest tests/test_polling.py
-```
-then remove services nginx, certbot from `docker-compose.yml` and finally:
-```
-docker compose up --build
-```
-
-### Clone the Repository
+### Clone repository
 
 ```bash
 git clone https://github.com/serdukow/easy-aiogram-bot.git
 cd easy-aiogram-bot
 ```
-
-## Setting Webhook
+### Webhook prerequisites
+If you want **to use webhook**, ensure you have your own domain.  
+Then proceed to [How to Set Webhook](#how-to-set-webhook). 
+### Polling prerequisites
+To start bot without webhook, just fill `.env` with your keys, then verify it by run this command in terminal:
+```
+poetry run pytest tests/test_polling.py
+```
+then **remove services nginx, certbot** from `docker-compose.yml` and finally:
+```
+docker compose up --build
+```
+## How to set Webhook
 
 To set up the webhook, follow these steps:
 
 1. **Set your domain** in the `.env` file under the `NGINX_HOST` variable.
-   ```
-   NGINX_HOST=your_domain.com
-   ```
+```
+NGINX_HOST=your-domain.com
+```
 2. **Build and start** the Docker containers using the .env file:
 ```bash
 docker compose --env-file .env build
@@ -85,11 +87,18 @@ volumes:
 - ./nginx/templates:/etc/nginx/templates/:ro
   ```
 
-8. **Finally** verify  and restart with the final setup, do not forget to set var `USE_WEBHOOK=True` and `WEBHOOK_URL='https://your-domain.com'` then:
+8. **Finally** verify  and restart with the final setup, do not forget to set this vars in `.env`:
+```
+USE_WEBHOOK=True
+``` 
+```
+WEBHOOK_URL='https://your-domain.com'
+```
+then run test:
 ```
 poetry run pytest tests/test_webhook.py
 ```
-then compose
+finally compose
 ```
 docker compose up --build
 ```
