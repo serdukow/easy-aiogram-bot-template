@@ -78,8 +78,7 @@ docker compose --env-file .env build
 docker compose run --rm -d -p 80:80 nginx
 ```
 
-3. **Verify the setup**
-Check if your Nginx server is up and running by using curl:
+3. **Verify it** by using curl:
 ```
 curl http://your-domain.com
 ```
@@ -90,7 +89,7 @@ If you receive an HTTP 301 redirect, everything is working fine.
 ```
 docker compose run --rm certbot certonly --webroot --webroot-path /var/www/certbot/ --dry-run -d your-domain.com
 ```
-If the dry run is successful, you should see a message saying: **The dry run was successful.**
+If the dry run is successful, you should see a appropriate message
 
 5. **Issue the SSL certificate:**
 
@@ -104,9 +103,7 @@ docker compose run --rm certbot certonly --webroot --webroot-path /var/www/certb
 docker compose kill && docker compose down
 ```
 
-7. **Update docker-compose.yml:**
-
-Make sure your docker-compose.yml file is correctly configured for Nginx templates:
+7. **Update docker-compose.yml for production:**
 
 ```
 volumes:
