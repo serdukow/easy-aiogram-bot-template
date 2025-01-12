@@ -1,12 +1,16 @@
 
-# Easy Aiogram Bot
+Easy Aiogram Bot
+==============
 ![Python](https://img.shields.io/badge/python-3.12.3-blue)
 ![Aiogram](https://img.shields.io/badge/Aiogram-^3.17.0-blue)
 ![FastAPI](https://img.shields.io/badge/FastAPI-^0.115.6-green)
 
 Easily make scalable Aiogram bots with this template. This template is designed to help you quickly build, configure, and deploy Aiogram-based bots with a flexible and scalable structure.
+![](https://i.imgur.com/waxVImv.png)
 
-## Features
+Features
+==============
+
 
 - **Poetry**: Use [Poetry](https://python-poetry.org/) for managing dependencies and virtual environments.
 - **Webhook Support**: Easily configure and deploy bots with webhooks for scalability.
@@ -15,12 +19,15 @@ Easily make scalable Aiogram bots with this template. This template is designed 
 - **Dockerized**: Fully Dockerized, making it easy to deploy your bot in any environment.
 - **Postgres**: Seamlessly integrate PostgreSQL for reliable and scalable database storage.
 - **Redis**: Fully Dockerized, so it can be easily deployed alongside your bot in any environment. The Redis setup supports scaling, making it suitable for high-traffic bots.
+----------------------
 
-## Usage
+Usage
+==============
 
 To quickly get started with the bot, follow the steps below.
 
-## Prerequisites
+Prerequisites
+==============
 
 ### Clone repository
 
@@ -40,7 +47,9 @@ then **remove services nginx, certbot** from `docker-compose.yml` and finally:
 ```
 docker compose up --build
 ```
-## How to set Webhook
+----------------------
+How to set Webhook
+==============
 
 To set up the webhook, follow these steps:
 
@@ -112,13 +121,23 @@ After 3 months, you’ll need to renew the SSL certificate. To do so, run:
 docker compose up
 dockercompose run --rm certbot renew
 ```
+----------------------
+Roadmap
+==============
 
-## Contributing
+- [x] Tests
+  - [x] Basic
+  - [ ] Versions
+- [ ] Webapp Integration
+- [ ] React frontend for webapp
+----------------------
+Contributing
+==============
 Pull requests are welcome. For major changes, please open an issue first to discuss what you would like to change.
-
 Please make sure to update tests as appropriate.
-
-## Special thanks
+----------------------
+Special thanks
+==============
 [@ssharkexe](https://github.com/ssharkexe)
 
 
