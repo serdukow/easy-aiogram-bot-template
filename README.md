@@ -19,7 +19,7 @@ To quickly get started with the bot, follow the steps below to set up the enviro
 
 ### Prerequisites
 
-If you want **to use webhook** ensure you have your own domain. To start bot without webhook, just fill `.env` with your API keys and set var `USE_WEBHOOK=True`, then verify it by run this command in terminal:
+If you want **to use webhook** ensure you have your own domain. To start bot without webhook, just fill `.env` with your API keys, then verify it by run this command in terminal:
 ```
 poetry run pytest tests/test_polling.py
 ```
