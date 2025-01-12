@@ -27,10 +27,10 @@ Features
 - **Dockerized**: Fully Dockerized, making it easy to deploy your bot in any environment.
 
 
-- **Postgres**: Seamlessly integrate PostgreSQL for reliable and scalable database storage.
+- **Postgres**: As main database storage.
 
 
-- **Redis**: As main storage. Suitable for high-traffic bots.
+- **Redis**: As main broker. Suitable for high-traffic bots.
 
 
 - **Localization**: Easy translation and support for different languages.
