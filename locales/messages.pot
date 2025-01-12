@@ -1,0 +1,51 @@
+# Translations template for PROJECT.
+# Copyright (C) 2025 ORGANIZATION
+# This file is distributed under the same license as the PROJECT project.
+# FIRST AUTHOR <EMAIL@ADDRESS>, 2025.
+#
+#, fuzzy
+msgid ""
+msgstr ""
+"Project-Id-Version: PROJECT VERSION\n"
+"Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
+"POT-Creation-Date: 2025-01-12 11:57+0300\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language-Team: LANGUAGE <LL@li.org>\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=utf-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Generated-By: Babel 2.16.0\n"
+
+#: src/bot/filters/text_length.py:9
+msgid "too_much_char"
+msgstr ""
+
+#: src/bot/handlers/bot_commands.py:52
+msgid "grant_admin"
+msgstr ""
+
+#: src/bot/handlers/bot_commands.py:53
+msgid "get_me"
+msgstr ""
+
+#: src/bot/handlers/bot_commands.py:67
+msgid "hello"
+msgstr ""
+
+#: src/bot/handlers/bot_commands.py:78
+msgid "already_admin"
+msgstr ""
+
+#: src/bot/handlers/bot_commands.py:83
+msgid "how_to_grant_admin_rights"
+msgstr ""
+
+#: src/bot/handlers/bot_commands.py:93
+msgid "me"
+msgstr ""
+
+#: src/bot/keyboards/inline.py:46
+msgid "Back ←"
+msgstr ""
+

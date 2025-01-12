@@ -1,0 +1,62 @@
+# English translations for PROJECT.
+# Copyright (C) 2025 ORGANIZATION
+# This file is distributed under the same license as the PROJECT project.
+# FIRST AUTHOR <serdukow1@gmail.com>, 2025.
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: 0.1.0\n"
+"Report-Msgid-Bugs-To: serdukow1@gmail.com\n"
+"POT-Creation-Date: 2025-01-12 11:57+0300\n"
+"PO-Revision-Date: 2025-01-12 11:57+0300\n"
+"Last-Translator: easy-aiogram-bot <serdukow1@gmail.com>\n"
+"Language: en\n"
+"Language-Team: en <LL@li.org>\n"
+"Plural-Forms: nplurals=2; plural=(n != 1);\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=utf-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Generated-By: Babel 2.16.0\n"
+
+#: src/bot/filters/text_length.py:9
+msgid "too_much_char"
+msgstr ""
+"This message exceeds the allowed character limit. Currently length is <b>{length}</b>."
+"Please reduce the number of characters less then 4000 and try again."
+
+#: src/bot/handlers/bot_commands.py:52
+msgid "grant_admin"
+msgstr ""
+"Grant admin rights"
+
+#: src/bot/handlers/bot_commands.py:53
+msgid "get_me"
+msgstr ""
+"Get me"
+
+#: src/bot/handlers/bot_commands.py:67
+msgid "hello"
+msgstr ""
+"Hi, {full_name}!\n\nSimple message. "
+"You can easily edit this message text: easy-aiogram-bot/locales/en/messages.po"
+
+#: src/bot/handlers/bot_commands.py:78
+msgid "already_admin"
+msgstr ""
+"User {admin_id} is already an administrator of this bot."
+
+#: src/bot/handlers/bot_commands.py:83
+msgid "how_to_grant_admin_rights"
+msgstr ""
+"You can easily add new administrator of this bot. Just set new telegram id to the '.env' ADMIN_IDS variable"
+
+#: src/bot/handlers/bot_commands.py:93
+msgid "me"
+msgstr ""
+"I`am:\n\n{from_user}"
+
+#: src/bot/keyboards/inline.py:46
+msgid "Back ←"
+msgstr ""
+"Back ←"
+
