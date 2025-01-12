@@ -72,7 +72,7 @@ docker compose run --rm certbot certonly --webroot --webroot-path /var/www/certb
 6. **Stop the containers:**
 
 ```
-docker compose kill && docker-compose down
+docker compose kill && docker compose down
 ```
 
 7. **Update docker-compose.yml:**
