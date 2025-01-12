@@ -13,12 +13,27 @@ Features
 
 
 - **Poetry**: Use [Poetry](https://python-poetry.org/) for managing dependencies and virtual environments.
+
+
 - **Webhook Support**: Easily configure and deploy bots with webhooks for scalability.
+
+
 - **Nginx Integration**: Easily integrate Nginx for serving your bot over HTTPS and managing webhooks.
+
+
 - **Logging & Monitoring**: Simple logging configuration for better debugging and monitoring.
+
+
 - **Dockerized**: Fully Dockerized, making it easy to deploy your bot in any environment.
+
+
 - **Postgres**: Seamlessly integrate PostgreSQL for reliable and scalable database storage.
+
+
 - **Redis**: Fully Dockerized, so it can be easily deployed alongside your bot in any environment. The Redis setup supports scaling, making it suitable for high-traffic bots.
+
+
+- **Localization**: Supports multilingual bots with built-in localization features, allowing easy translation and support for different languages.
 ----------------------
 
 Usage
