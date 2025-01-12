@@ -85,7 +85,7 @@ volumes:
 - ./nginx/templates:/etc/nginx/templates/:ro
   ```
 
-8. **Finally** verify  and restart with the final setup:
+8. **Finally** verify  and restart with the final setup, do not forget to set var `USE_WEBHOOK=True` and `WEBHOOK_URL='https://your-domain.com'` then:
 ```
 poetry run pytest tests/test_webhook.py
 ```
