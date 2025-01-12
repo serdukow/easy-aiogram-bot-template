@@ -17,7 +17,7 @@ Easily make scalable Aiogram bots with this template. This template is designed 
 
 To quickly get started with the bot, follow the steps below.
 
-### Prerequisites
+## Prerequisites
 
 ### Clone repository
 
