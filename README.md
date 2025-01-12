@@ -21,7 +21,7 @@ To quickly get started with the bot, follow the steps below to set up the enviro
 
 If you want **to use webhook** ensure you have your own domain. To start bot without webhook, just fill `.env` with your API keys, then verify it by run this command in terminal:
 ```
-poetry run pytest
+poetry run pytest tests/test_polling.py
 ```
 then remove services nginx, certbot from `docker-compose.yml` and finally:
 ```
@@ -45,34 +45,34 @@ To set up the webhook, follow these steps:
    ```
 2. **Build and start** the Docker containers using the .env file:
 ```bash
-docker-compose --env-file .env build
-docker-compose run --rm -d -p 80:80 nginx
+docker compose --env-file .env build
+docker compose run --rm -d -p 80:80 nginx
 ```
 
 3. **Verify the setup**
 Check if your Nginx server is up and running by using curl:
 ```
-curl http://your_domain.com
+curl http://your-domain.com
 ```
 If you receive an HTTP 301 redirect, everything is working fine.
 
 4. **Simulate certificate issuance:**
 
 ```
-docker-compose run --rm certbot certonly --webroot --webroot-path /var/www/certbot/ --dry-run -d your_domain.com
+docker compose run --rm certbot certonly --webroot --webroot-path /var/www/certbot/ --dry-run -d your-domain.com
 ```
 If the dry run is successful, you should see a message saying: **The dry run was successful.**
 
 5. **Issue the SSL certificate:**
 
 ```
-docker-compose run --rm certbot certonly --webroot --webroot-path /var/www/certbot/ -d your_domain.com
+docker compose run --rm certbot certonly --webroot --webroot-path /var/www/certbot/ -d your-domain.com
 ```
 
 6. **Stop the containers:**
 
 ```
-docker-compose kill && docker-compose down
+docker compose kill && docker-compose down
 ```
 
 7. **Update docker-compose.yml:**
@@ -85,16 +85,20 @@ volumes:
 - ./nginx/templates:/etc/nginx/templates/:ro
   ```
 
-8. **Finally** restart with the final setup:
+8. **Finally** verify  and restart with the final setup:
 ```
-docker-compose up --build
+poetry run pytest tests/test_webhook.py
+```
+then compose
+```
+docker compose up --build
 ```
 
 **Renewing SSL Certificate:**
 After 3 months, you’ll need to renew the SSL certificate. To do so, run:
 ```
-docker-compose up
-docker-compose run --rm certbot renew
+docker compose up
+dockercompose run --rm certbot renew
 ```
 
 ## Contributing
