@@ -1,5 +1,4 @@
 FROM python:3.9-alpine
-ENV TZ Europe/Moscow
 
 RUN apk update && apk add --no-cache postgresql-dev
 
