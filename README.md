@@ -12,7 +12,7 @@ Features
 ==============
 
 
-- **[Poetry](https://python-poetry.org/)**: For managing dependencies and virtual environments.
+- **Poetry**: As main dependency and package manager.
 
 
 - **Webhook Support**: Easily configure and deploy bots with webhooks.
