@@ -60,7 +60,8 @@ services:
     environment:
       - NGINX_HOST
     volumes:
-      - ${NGINX_CONFIG_PATH}:/etc/nginx/templates/:ro
+      # - ./nginx/initial:/etc/nginx/templates/:ro
+      - ./nginx/templates:/etc/nginx/templates/:ro
       - ./certbot/www:/var/www/certbot/:ro
       - ./certbot/conf/:/etc/nginx/ssl/:ro
     networks:
