@@ -1,16 +1,13 @@
 import os
-
 import structlog
+from environs import Env
 
 logger = structlog.getLogger(__name__)
 
 REQUIRED_ENV_VARS = ["BOT_TOKEN", "MAINTENANCE_MODE"]
 
 WEBHOOK_VARS = [
-    "MAIN_WEBHOOK_ADDRESS",
-    "WEBHOOK_SECRET_TOKEN",
-    "WEBHOOK_LISTENING_HOST",
-    "WEBHOOK_LISTENING_PORT",
+    "WEBHOOK_URL"
 ]
 
 POSTGRES_VARS = [
@@ -27,6 +24,9 @@ REDIS_VARS = [
     "REDIS_PSSWRD",
 ]
 
+env = Env()
+env.read_env()
+
 
 def test_env_vars():
     """
@@ -35,13 +35,13 @@ def test_env_vars():
     """
     missing_vars = [var for var in REQUIRED_ENV_VARS if var not in os.environ]
 
-    if os.environ.get("USE_WEBHOOK", "False").lower() == "true":
+    if env.bool("USE_WEBHOOK", False):
         missing_vars.extend([var for var in WEBHOOK_VARS if var not in os.environ])
 
-    if os.environ.get("USE_POSTGRES", "False").lower() == "true":
+    if env.bool("USE_POSTGRES", False):
         missing_vars.extend([var for var in POSTGRES_VARS if var not in os.environ])
 
-    if os.environ.get("USE_REDIS", "False").lower() == "true":
+    if env.bool("USE_REDIS", False):
         missing_vars.extend([var for var in REDIS_VARS if var not in os.environ])
 
     assert not missing_vars, logger.error(f"Missing required envs: {', '.join(missing_vars)}")
