@@ -21,17 +21,16 @@ class UserRepository(BaseRepository):
         """
         async with get_pg_session() as session:
             try:
-                self.logger.info('Creating user', user_data=kwargs)
                 user = UserOrm(**kwargs)
                 await self.save(user)
-                self.logger.info('User created successfully', user_id=user.id)
+                self.logger.info(f'User {user.telegram_id} created successfully')
                 return user
             except Exception as e:
                 await session.rollback()
-                self.logger.error('Failed to create user, rolled back', error=str(e))
+                self.logger.error('Failed to create user, rolled back', detail=str(e))
                 raise
 
-    async def get_user(
+    async def get_or_create_user(
         self,
         telegram_id: int,
         full_name: Optional[str],
@@ -63,7 +62,7 @@ class UserRepository(BaseRepository):
             )
             return user
 
-        await self.update_user(
+        await self.fetch_telegram_updates(
             user=user,
             full_name=full_name,
             username=username,
@@ -73,7 +72,7 @@ class UserRepository(BaseRepository):
         )
         return user
 
-    async def update_user(
+    async def fetch_telegram_updates(
         self,
         user: UserOrm,
         full_name: Optional[str],
@@ -83,7 +82,7 @@ class UserRepository(BaseRepository):
         language: Optional[str] = "en"
     ):
         """
-        Update an existing user's data if necessary.
+        Update an existing user's data if necessary. Example: when user change username or name.
 
         :param user: The existing user instance.
         :param full_name: New full name of the user.
@@ -103,8 +102,8 @@ class UserRepository(BaseRepository):
 
         updated_data = {key: value for key, value in user_data.items() if getattr(user, key) != value}
         if updated_data:
-            self.logger.info('Updating user data', user_id=user.id, updated_data=updated_data)
+            self.logger.info(f'Updating user data with telegram id: {user.telegram_id}', updated_data=updated_data)
             await self.update(user.telegram_id, **updated_data)
         else:
-            self.logger.info('No changes detected for user', user_id=user.id)
+            pass
         return user

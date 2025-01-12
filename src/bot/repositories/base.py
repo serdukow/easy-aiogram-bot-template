@@ -13,13 +13,13 @@ class BaseRepository:
         self.__model__ = model
         self.logger = structlog.get_logger(__name__)
 
-    async def get_by_id(self, **kwargs):
+    async def get_by_id(self, object_id: int):
         async with get_pg_session() as session:
             try:
-                result = await session.execute(select(self.__model__).filter_by(**kwargs))
+                result = await session.execute(select(self.__model__).filter_by(id=object_id))
                 return result.scalars().first()
             except Exception as e:
-                self.logger.error(f"Error fetching entity by id", kwargs=kwargs, error=str(e))
+                self.logger.error(f"Error fetching entity by id: {object_id}", detail=str(e))
                 return None
 
     async def get_by_params(self, **kwargs):
