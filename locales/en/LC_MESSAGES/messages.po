@@ -1,6 +1,6 @@
-# English translations for PROJECT.
-# Copyright (C) 2025 ORGANIZATION
-# This file is distributed under the same license as the PROJECT project.
+# English translations for Easy Aiogram Bot.
+# Copyright (C) 2025 Easy Aiogram Bot
+# This file is distributed under the same license as the Easy Aiogram Bot project.
 # FIRST AUTHOR <serdukow1@gmail.com>, 2025.
 #
 msgid ""
