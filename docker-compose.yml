@@ -1,0 +1,80 @@
+services:
+  redis:
+    image: redis:alpine
+    command: ["redis-server", "/usr/local/etc/redis/redis.conf"]
+    environment:
+        REDIS_HOST: ${REDIS_HOST}
+        REDIS_PORT: ${REDIS_PORT}
+        REDIS_PASSWORD: ${REDIS_PSSWRD}
+    extra_hosts:
+      - "host.docker.internal:host-gateway"
+    restart: always
+    volumes:
+      - redisdata:/data
+      - ./redis.conf:/usr/local/etc/redis/redis.conf
+    ports:
+      - "6379:6379"
+    networks:
+      - web
+
+  postgres:
+    hostname: postgres
+    image: postgres:alpine
+    container_name: postgres
+    environment:
+      POSTGRES_USER: ${PG_USER}
+      POSTGRES_HOST: ${PG_HOST}
+      POSTGRES_PASSWORD: ${PG_PSSWRD}
+      POSTGRES_DB: ${PG_NAME}
+    extra_hosts:
+      - "host.docker.internal:host-gateway"
+    volumes:
+      - ./pg_hba.conf:/etc/postgresql/pg_hba.conf
+      - ./postgresql.conf:/etc/postgresql/postgresql.conf
+      - pgdata:/var/lib/postgresql/data
+    ports:
+      - "5432:5432"
+    networks:
+      - web
+
+  bot:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    env_file:
+      - .env
+    extra_hosts:
+      - "host.docker.internal:host-gateway"
+    restart: always
+    ports:
+      - 3001:3001
+    networks:
+      - web
+
+  nginx:
+    image: nginx:1.23-alpine
+    ports:
+      - 8090:8090
+      - 8443:8443
+    restart: always
+    environment:
+      - NGINX_HOST
+    volumes:
+      - ${NGINX_CONFIG_PATH}:/etc/nginx/templates/:ro
+      - ./certbot/www:/var/www/certbot/:ro
+      - ./certbot/conf/:/etc/nginx/ssl/:ro
+    networks:
+      - web
+
+  certbot:
+    image: certbot/certbot:v2.5.0
+    volumes:
+      - ./certbot/www/:/var/www/certbot/:rw
+      - ./certbot/conf/:/etc/letsencrypt/:rw
+
+volumes:
+  pgdata:
+  redisdata:
+
+networks:
+  web:
