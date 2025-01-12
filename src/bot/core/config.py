@@ -32,7 +32,7 @@ USE_WEBHOOK: bool = env.bool("USE_WEBHOOK", False)
 if USE_WEBHOOK:
     WEBHOOK_PATH: str = f"/webhook/{BOT_ID}"
 
-    WEBHOOK_HOST: str = env.str("MAIN_WEBHOOK_ADDRESS")
+    WEBHOOK_HOST: str = env.str("WEBHOOK_HOST")
     WEBHOOK_URL = WEBHOOK_HOST + WEBHOOK_PATH
 
     WEBHOOK_SECRET_TOKEN: str = env.str("WEBHOOK_SECRET_TOKEN")
