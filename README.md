@@ -19,7 +19,11 @@ To quickly get started with the bot, follow the steps below to set up the enviro
 
 ### Prerequisites
 
-If you want **to use webhook** ensure you have your own domain. To start bot without webhook, just fill `.env` with your API keys, verifi it by run this command in terminal `poetry run pytest` then remove services nginx, certbot from `docker-compose.yml` and finally:
+If you want **to use webhook** ensure you have your own domain. To start bot without webhook, just fill `.env` with your API keys, then verify it by run this command in terminal:
+```
+poetry run pytest
+```
+then remove services nginx, certbot from `docker-compose.yml` and finally:
 ```
 docker compose up --build
 ```
