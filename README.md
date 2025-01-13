@@ -137,7 +137,7 @@ Roadmap
   - [ ] Versions
 - [ ] React Webapp integration
 - [x] Database
-  - [ ] Alembic 
+  - [x] Alembic 
 ----------------------
 Contributing
 ==============
