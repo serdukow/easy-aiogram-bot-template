@@ -62,7 +62,7 @@ class UserRepository(BaseRepository):
             )
             return user
 
-        await self.fetch_telegram_updates(
+        await self.fetch_user_telegram_updates(
             user=user,
             full_name=full_name,
             username=username,
@@ -72,7 +72,7 @@ class UserRepository(BaseRepository):
         )
         return user
 
-    async def fetch_telegram_updates(
+    async def fetch_user_telegram_updates(
         self,
         user: UserOrm,
         full_name: Optional[str],
