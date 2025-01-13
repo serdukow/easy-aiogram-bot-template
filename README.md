@@ -41,8 +41,8 @@ Get started
 ### Clone repository
 
 ```bash
-git clone https://github.com/serdukow/easy-aiogram-bot.git
-cd easy-aiogram-bot
+git clone https://github.com/serdukow/easy-aiogram-bot-template.git
+cd easy-aiogram-bot-template
 ```
 ### Webhook
 If you want **to use webhook**, ensure you have your own domain.  
