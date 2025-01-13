@@ -1,5 +1,6 @@
 import logging
 import sys
+from datetime import datetime
 from logging.handlers import MemoryHandler
 
 import structlog
@@ -80,7 +81,7 @@ def setup_logger() -> structlog.typing.FilteringBoundLogger:
     memory_handler = MemoryHandler(
         capacity=10,
         flushLevel=logging.ERROR,
-        target=logging.FileHandler('bot.log')
+        target=logging.FileHandler(f'../../logs/logs_{datetime.now().date()}.log')
     )
     memory_handler.setLevel(logging.ERROR)
 
