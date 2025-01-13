@@ -24,24 +24,19 @@ Features
 - **Logging & Monitoring**: Simple logging configuration for better debugging and monitoring.
 
 
-- **Dockerized**: Fully Dockerized, making it easy to deploy your bot in any environment.
+- **Dockerized**: Fully Dockerized.
 
 
 - **Postgres**: As main database storage.
 
 
-- **Redis**: As main broker. Suitable for high-traffic bots.
+- **Redis**: As main cache storage
 
 
-- **Localization**: Easy translation and support for different languages.
+- **Localization**: Easy translatable support for different languages.
 ----------------------
 
-Usage
-==============
-
-To quickly get started with the bot, follow the steps below.
-
-Prerequisites
+Get started
 ==============
 
 ### Clone repository
@@ -50,10 +45,10 @@ Prerequisites
 git clone https://github.com/serdukow/easy-aiogram-bot.git
 cd easy-aiogram-bot
 ```
-### Webhook prerequisites
+### Webhook
 If you want **to use webhook**, ensure you have your own domain.  
-Then proceed to [How to Set Webhook](#how-to-set-webhook). 
-### Polling prerequisites
+Then proceed to [How to Set Webhook](#how-to-set-webhook) 
+### Polling
 To start bot without webhook, just fill `.env` with your keys, then verify it by run this command in terminal:
 ```
 poetry run pytest tests/test_polling.py
@@ -141,6 +136,8 @@ Roadmap
   - [x] Basic
   - [ ] Versions
 - [ ] React Webapp integration
+- [x] Database
+  - [ ] Alembic 
 ----------------------
 Contributing
 ==============
