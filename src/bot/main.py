@@ -22,7 +22,7 @@ from src.bot.middlewares.logging import StructLoggingMiddleware
 from src.bot.models import async_create_tables
 from src.bot import utils
 from src.bot.core.settings import BotSettings
-from src.bot.utils.stogare_settings import get_storage_settings
+from src.bot.utils.stogare_settings import get_storage
 from src.bot.utils.localization import get_i18n
 from src.bot.utils.pg_session import engine
 from src.bot.utils.webhook_settings import get_webhook_settings
@@ -30,7 +30,7 @@ from src.bot.utils.webhook_settings import get_webhook_settings
 logger = structlog.get_logger(__name__)
 
 dp = Dispatcher(
-    storage=get_storage_settings().get_storage,
+    storage=get_storage(),
     maintenance_mode=config.MAINTENANCE_MODE)
 
 bot = BotSettings().get_bot(config.BOT_TOKEN)
@@ -93,19 +93,21 @@ register_controllers(app)
 get_webhook_settings().allow_cors_origins(app)
 
 
-@app.post(config.WEBHOOK_PATH)
-async def bot_webhook(update: dict):
-    telegram_update = types.Update(**update)
-    await dp.feed_update(bot=bot, update=telegram_update)
-    return status.HTTP_200_OK
+if config.USE_WEBHOOK:
+    @app.post(config.WEBHOOK_PATH)
+    async def bot_webhook(update: dict):
+        telegram_update = types.Update(**update)
+        await dp.feed_update(bot=bot, update=telegram_update)
+        return status.HTTP_200_OK
 
 
 def main() -> None:
     if config.USE_WEBHOOK:
+        webhook_settings = get_webhook_settings()
         uvicorn.run(
             app,
-            host=get_webhook_settings().host,
-            port=get_webhook_settings().port,
+            host=webhook_settings.host,
+            port=webhook_settings.port,
             log_level="debug",
             access_log=True,
             reload=False,
