@@ -87,9 +87,6 @@ sdist/
 var/
 share/python-wheels/
 
-### Logs ###
-logs/
-*.log
 
 ### LSP config files ###
 pyrightconfig.json
