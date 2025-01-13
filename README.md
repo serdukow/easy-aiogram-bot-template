@@ -1,16 +1,15 @@
 
-Easy Aiogram Bot
+Easy Aiogram Bot Template
 ==============
 ![Python](https://img.shields.io/badge/python-3.12.3-yellow)
 ![Aiogram](https://img.shields.io/badge/Aiogram-3.17.0-blue)
 ![FastAPI](https://img.shields.io/badge/FastAPI-0.115.6-red)
 
-Easily make scalable Aiogram bots with this template. This template is designed to help you quickly build, configure, and deploy Aiogram-based bots with a flexible and scalable structure.
+🤖 Simple, but powerful template for scalable Aiogram bots.
 ![](https://i.imgur.com/waxVImv.png)
 
 Features
 ==============
-
 
 - **Poetry**: As main dependency and package manager.
 
@@ -18,10 +17,10 @@ Features
 - **Webhook Support**: Easily configure and deploy bots with webhooks.
 
 
-- **Nginx Integration**: Easily integrate Nginx for serving your bot over HTTPS and managing webhooks.
+- **Nginx Integration**: Serving your bot over HTTPS and manage webhooks.
 
 
-- **Logging & Monitoring**: Simple logging configuration for better debugging and monitoring.
+- **Logging & Monitoring**: Logging, debugging and monitoring.
 
 
 - **Dockerized**: Fully Dockerized.
@@ -33,7 +32,7 @@ Features
 - **Redis**: As main cache storage
 
 
-- **Localization**: Easy translatable support for different languages.
+- **Localization**: Translatable support for different languages with.
 ----------------------
 
 Get started
