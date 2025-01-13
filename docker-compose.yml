@@ -48,6 +48,9 @@ services:
     restart: always
     ports:
       - 3001:3001
+    depends_on:
+      - postgres
+    command: bash -c "alembic upgrade head"
     networks:
       - web
 
