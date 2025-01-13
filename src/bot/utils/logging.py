@@ -1,4 +1,5 @@
 import logging
+import os
 import sys
 from datetime import datetime
 from logging.handlers import MemoryHandler
@@ -78,10 +79,13 @@ def setup_logger() -> structlog.typing.FilteringBoundLogger:
 
     processors: list[structlog.typing.Processor] = [*shared_processors]
 
+    log_dir = '../../logs'
+    os.makedirs(log_dir, exist_ok=True)
+
     memory_handler = MemoryHandler(
         capacity=10,
         flushLevel=logging.ERROR,
-        target=logging.FileHandler(f'../../logs/logs_{datetime.now().date()}.log')
+        target=logging.FileHandler(f'{log_dir}/logs_{datetime.now().date()}.log')
     )
     memory_handler.setLevel(logging.ERROR)
 
