@@ -12,6 +12,11 @@ required_packages = [
     "pytest",
     "babel",
     "aiogram",
+    "alembic",
+    "typing-inspect",
+    "asyncpg",
+    "redis",
+    "greenlet",
 ]
 
 
