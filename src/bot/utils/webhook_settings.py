@@ -13,8 +13,6 @@ class WEBHOOKSettings(BaseSettings):
     log_level: str = "debug"
 
     ALLOWED_CORS_ORIGINS: set = [
-        config.WEBHOOK_HOST,
-        config.NGINX_HOST,
         "http://localhost:3000",
         "http://localhost:3001",
         "http://localhost:5173",
@@ -22,8 +20,6 @@ class WEBHOOKSettings(BaseSettings):
         "localhost:5173",
         "127.0.0.1",
         "host.docker.internal",
-        "https://web.telegram.org",
-        "https://t.me"
     ]
 
     class Config:

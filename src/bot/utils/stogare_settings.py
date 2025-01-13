@@ -26,17 +26,14 @@ class StorageSettings(BaseSettings):
         return f"redis://{self.user}:{self.psswrd}@{self.host}:{self.port}"
 
     @property
-    def redis(self) -> Union[str, RedisStorage]:
+    def redis(self) -> RedisStorage:
         return RedisStorage.from_url(url=self.url)
-
-    @property
-    def get_storage(self):
-        if config.USE_REDIS:
-            return self.redis
-        else:
-            return MemoryStorage()
 
 
 @lru_cache()
-def get_storage_settings() -> StorageSettings:
-    return StorageSettings()
+def get_storage() -> Union[MemoryStorage, RedisStorage]:
+    if config.USE_REDIS:
+        redis_settings = StorageSettings()
+        return redis_settings.redis
+    else:
+        return MemoryStorage()

@@ -12,7 +12,7 @@ BOT_TOKEN: str = env.str("BOT_TOKEN")
 BOT_ID: str = BOT_TOKEN.split(":")[0]
 BOT_API: str = BOT_TOKEN.split(":")[1]
 GROUP_ID: int = env.int("GROUP_ID", None)
-ADMINS_IDS: Union[int, list[int]] = env.list("ADMIN_IDS", subcast=int)
+ADMINS_IDS: Union[int, list[int]] = env.list("ADMIN_IDS", default=[], subcast=int)
 
 USE_POSTGRES: str = env.str("USE_POSTGRES", False)
 if USE_POSTGRES:

@@ -6,7 +6,7 @@ import orjson
 import pydantic
 import pytz
 from pydantic import ConfigDict
-from sqlalchemy import Column, BigInteger, DateTime
+from sqlalchemy import Column, BigInteger, DateTime, MetaData
 import sqlalchemy as sa
 from sqlalchemy.orm import declarative_base
 
@@ -34,6 +34,16 @@ class BaseOrm(Base):
     __abstract__ = True
     __table_args__ = {"extend_existing": True}
 
+    metadata = MetaData(
+        naming_convention={
+            "ix": "ix_%(column_0_label)s",
+            "uq": "uq_%(table_name)s_%(column_0_name)s",
+            "ck": "ck_%(table_name)s_`%(constraint_name)s`",
+            "fk": "fk_%(table_name)s_%(column_0_name)s_%(referred_table_name)s",
+            "pk": "pk_%(table_name)s",
+        }
+    )
+
     id = Column(BigInteger, primary_key=True, autoincrement=True, nullable=False)
     created_at = Column(DateTime(timezone=True), server_default=sa.text("CURRENT_TIMESTAMP"), nullable=False)
     updated_at = Column(
@@ -42,3 +52,6 @@ class BaseOrm(Base):
         onupdate=datetime.now(pytz.UTC),
         server_default=sa.text("CURRENT_TIMESTAMP"),
     )
+
+
+Base.metadata.naming_convention = BaseOrm.metadata.naming_convention
