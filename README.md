@@ -5,7 +5,7 @@ Easy Aiogram Bot Template
 ![Aiogram](https://img.shields.io/badge/Aiogram-3.17.0-blue)
 ![FastAPI](https://img.shields.io/badge/FastAPI-0.115.6-red)
 
-🤖 Simple, but powerful template for scalable Aiogram bots.
+🤖 Lightweight, simple, but powerful template for scalable Aiogram bots.
 ![](https://i.imgur.com/waxVImv.png)
 
 
