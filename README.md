@@ -12,14 +12,10 @@ Easy Aiogram Bot Template
 # Features
 
 
-![Poetry](https://img.shields.io/badge/poetry-1f2e86?logo=poetry&logoColor=ffffff)
-![Webhook](https://img.shields.io/badge/webhook-0075A8?logo=webhook&logoColor=ffffff)
-![Nginx](https://img.shields.io/badge/Nginx-009639?logo=nginx&logoColor=ffffff)
-![Logging](https://img.shields.io/badge/Logging-5f5f5f?logo=logstash&logoColor=ffffff)
-![Docker](https://img.shields.io/badge/Docker-2496ED?logo=docker&logoColor=ffffff)
-![PostgreSQL](https://img.shields.io/badge/PostgreSQL-4169E1?logo=postgresql&logoColor=ffffff)
-![Alembic](https://img.shields.io/badge/Alembic-1D365D?logo=alembic&logoColor=ffffff)
-![Redis](https://img.shields.io/badge/Redis-DC382D?logo=redis&logoColor=ffffff)
+![Poetry](https://img.shields.io/badge/poetry-1f2e86?logo=poetry&logoColor=ffffff) ![Webhook](https://img.shields.io/badge/webhook-0075A8?logo=webhook&logoColor=ffffff) ![Nginx](https://img.shields.io/badge/Nginx-009639?logo=nginx&logoColor=ffffff) ![Logging](https://img.shields.io/badge/Logging-5f5f5f?logo=logstash&logoColor=ffffff)
+
+![Docker](https://img.shields.io/badge/Docker-2496ED?logo=docker&logoColor=ffffff) ![PostgreSQL](https://img.shields.io/badge/PostgreSQL-4169E1?logo=postgresql&logoColor=ffffff) ![Alembic](https://img.shields.io/badge/Alembic-1D365D?logo=alembic&logoColor=ffffff) ![Redis](https://img.shields.io/badge/Redis-DC382D?logo=redis&logoColor=ffffff)
+
 ![Localization](https://img.shields.io/badge/Localization-4CAF50?logo=translate&logoColor=ffffff)
 
 <details>
