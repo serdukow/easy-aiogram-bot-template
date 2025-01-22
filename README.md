@@ -29,6 +29,9 @@ Features
 - **Postgres**: As main database storage.
 
 
+- **Alembic**: Migration tool.
+
+
 - **Redis**: As main cache storage
 
 
@@ -45,22 +48,13 @@ git clone https://github.com/serdukow/easy-aiogram-bot-template.git
 cd easy-aiogram-bot-template
 ```
 ### Webhook
-If you want **to use webhook**, ensure you have your own domain.  
-Then proceed to [How to Set Webhook](#how-to-set-webhook) 
-### Polling
-To start bot without webhook, just fill `.env` with your keys, then verify it by run this command in terminal:
-```
-poetry run pytest tests/test_polling.py
-```
-then **remove services nginx, certbot** from `docker-compose.yml` and finally:
-```
-docker compose up --build
-```
-----------------------
-How to set Webhook
-==============
+<details>
+  <summary>Click fo Webhook installation details</summary>
 
-To set up the webhook, follow these steps:
+Ensure you have your **own domain** and **any VPS**. 
+
+
+To set up the webhook, **follow these steps**:
 
 1. **Set your domain** in the `.env` file under the `NGINX_HOST` variable.
 ```
@@ -110,7 +104,7 @@ volumes:
 USE_WEBHOOK=True
 ``` 
 ```
-WEBHOOK_URL='https://your-domain.com'
+WEBHOOK_HOST='https://your-domain.com'
 ```
 then run test:
 ```
@@ -127,6 +121,22 @@ After 3 months, you’ll need to renew the SSL certificate. To do so, run:
 docker compose up
 dockercompose run --rm certbot renew
 ```
+
+</details>
+
+### Polling
+<details>
+  <summary>Click for Polling installation details</summary>
+To start bot without webhook, just fill `.env` with your keys, then verify it by run this command in terminal:
+```
+poetry run pytest tests/test_polling.py
+```
+then **remove services nginx, certbot** from `docker-compose.yml` and finally:
+```
+docker compose up --build
+```
+</details>
+
 ----------------------
 Roadmap
 ==============
