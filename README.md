@@ -49,7 +49,7 @@ cd easy-aiogram-bot-template
 ```
 ### Webhook
 <details>
-  <summary>Click fo Webhook installation details</summary>
+  <summary>Click for Webhook installation details</summary>
 
 Ensure you have your **own domain** and **any VPS**. 
 
