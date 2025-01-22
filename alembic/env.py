@@ -1,6 +1,11 @@
 import asyncio
+import re
 from logging.config import fileConfig
+from pathlib import Path
+from typing import Iterable
 
+from alembic.operations import MigrationScript
+from alembic.runtime.migration import MigrationContext
 from sqlalchemy import pool
 from sqlalchemy.engine import Connection
 from sqlalchemy.ext.asyncio import async_engine_from_config
@@ -21,14 +26,43 @@ if config.config_file_name is not None:
 
 # add your model's MetaData object here
 # for 'autogenerate' support
-# from myapp import mymodel
-# target_metadata = mymodel.Base.metadata
 target_metadata = Base.metadata
 
 # other values from the config, defined by the needs of env.py,
 # can be acquired:
 # my_important_option = config.get_main_option("my_important_option")
 # ... etc.
+
+
+# noinspection PyUnusedLocal
+def process_revision_directives(
+    context: MigrationContext,
+    revision: str | Iterable[str | None] | None,
+    directives: list[MigrationScript]
+) -> None:
+    script_directory = context.script
+    head_revision_id = script_directory.get_current_head()
+    revision_num = 1
+
+    if head_revision_id:
+        head_revision_obj = script_directory.get_revision(head_revision_id)
+        head_revision_prefix, head_revision_name = (
+            Path(head_revision_obj.path).name.split('_', 1)
+        )
+        head_revision_num = re.findall(r"^(\d+)", head_revision_prefix)
+        head_revision_num = (
+            int(head_revision_num[0]) if head_revision_num else 0
+        )
+        revision_num = head_revision_num + 1
+
+    revision_num_str = f"{revision_num:03}"
+
+    slug_arg = context.config.cmd_opts.message
+    slug = re.sub(r'\W+', '_', slug_arg) if slug_arg else revision
+
+    file_template = f"{revision_num_str}_{slug}"
+
+    script_directory.file_template = file_template
 
 
 def run_migrations_offline() -> None:
@@ -49,6 +83,7 @@ def run_migrations_offline() -> None:
         target_metadata=target_metadata,
         literal_binds=True,
         dialect_opts={"paramstyle": "named"},
+        process_revision_directives=process_revision_directives
     )
 
     with context.begin_transaction():
@@ -56,7 +91,11 @@ def run_migrations_offline() -> None:
 
 
 def do_run_migrations(connection: Connection) -> None:
-    context.configure(connection=connection, target_metadata=target_metadata)
+    context.configure(
+        connection=connection,
+        target_metadata=target_metadata,
+        process_revision_directives=process_revision_directives
+    )
 
     with context.begin_transaction():
         context.run_migrations()
@@ -90,5 +129,3 @@ if context.is_offline_mode():
     run_migrations_offline()
 else:
     run_migrations_online()
-
-
