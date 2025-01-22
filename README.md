@@ -22,6 +22,37 @@ Easy Aiogram Bot Template
 ![Redis](https://img.shields.io/badge/Redis-DC382D?logo=redis&logoColor=ffffff)
 ![Localization](https://img.shields.io/badge/Localization-4CAF50?logo=translate&logoColor=ffffff)
 
+<details>
+  <summary>Click for detailed description</summary>
+
+- **Poetry**: As main dependency and package manager.
+
+
+- **Webhook Support**: Easily configure and deploy bots with webhooks.
+
+
+- **Nginx Integration**: Serving your bot over HTTPS and manage webhooks.
+
+
+- **Logging & Monitoring**: Logging, debugging and monitoring.
+
+
+- **Dockerized**: Fully Dockerized.
+
+
+- **Postgres**: As main database storage.
+
+
+- **Alembic**: Migration tool.
+
+
+- **Redis**: As main cache storage
+
+
+- **Localization**: Translatable support for different languages with.
+
+</details>
+
 Get started
 ==============
 
