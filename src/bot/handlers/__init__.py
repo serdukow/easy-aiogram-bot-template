@@ -1,6 +1,6 @@
 from aiogram import Dispatcher
 
-from src.bot.handlers.bot_commands import router
+from src.bot.handlers.start_handler import router
 from src.bot.handlers.is_member import router as member_router
 
 
