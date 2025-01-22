@@ -14,7 +14,7 @@ server {
     }
 
     location / {
-        return 301 https://${NGINX_HOST}:8443$request_uri;
+        return 301 https://${NGINX_HOST}$request_uri;
     }
 }
 
