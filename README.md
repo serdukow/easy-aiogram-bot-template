@@ -138,7 +138,9 @@ dockercompose run --rm certbot renew
 ### Polling
 <details>
   <summary>Click for Polling installation details</summary>
+
 To start bot without webhook, just fill `.env` with your keys, then verify it by run this command in terminal:
+
 ```
 poetry run pytest tests/test_polling.py
 ```
