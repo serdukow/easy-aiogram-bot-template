@@ -6,7 +6,7 @@ from src.server.schemas.user_schema import UserSchema
 from src.server.services.user_service import UserService
 
 router = APIRouter(
-    prefix='/api/user',
+    prefix='/api/v1/user',
     tags=['user']
 )
 
